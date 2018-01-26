@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Title</title>
+  <meta name="description" content="Genf-Timer">
+  <meta name="author" content="Simon Seyer">
+
+  <style type="text/css">
+  	
+  body {
+    background-image: url("background.jpg");
+    background-position: 50% 50%; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #cccccc;
+  }
+
+  p {
+    padding: 10% 20px;
+    max-width: 700px;
+    margin: auto;
+    color: white;
+    font-size: 3.5em;
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    opacity: 0.75;
+  }
+
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  
+  <p id="timer">Noch 123333 Minuten bis Genf</p>
+	
+
+  <script type="text/javascript">
+
+  	function update() {
+  		var theGreatDate = 1517599800000;
+  		var now = Date.now();
+  		var seconds = (theGreatDate - now) / 1000
+  		var minutes = seconds / 60
+  		var seconds = (minutes - Math.floor(minutes)) * 60
+
+  		document.getElementById('timer').innerHTML = "Noch " + Math.floor(minutes) + " Minuten und " + Math.floor(seconds) + " Sekunden bis Genf";
+  	}
+
+  	setInterval(update, 1000);
+  	update();
+
+  	var audio = new Audio('metal.mp3');
+	audio.play();
+
+  </script>
+</body>
+</html>
